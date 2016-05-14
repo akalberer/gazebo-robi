@@ -4,7 +4,7 @@
 	<static>true</static>
 	
 	<link name='chassis'>
-		<pose>0 0 .015 0 0 0</pose>
+		<pose>0 0 .012 0 0 0</pose>
 
 		<collision name='collision'>
               		<geometry>
@@ -17,10 +17,9 @@
 
             	<visual name='visual'>
               		<geometry>
-                		<cylinder>
-                  			<radius>0.09</radius>
-					<length>0.002</length>
-                		</cylinder>
+                		<mesh>
+					<uri>model://robi/meshes/robi_base.dae</uri>
+     				</mesh>
               		</geometry>
             	</visual>
 
@@ -29,7 +28,7 @@
             		
 			<geometry>
                 		<sphere>
-                			<radius>.015</radius>
+                			<radius>.012</radius>
               			</sphere>
             		</geometry>
 
@@ -50,10 +49,48 @@
 
             		<geometry>
               			<sphere>
-                			<radius>.015</radius>
+                			<radius>.012</radius>
               			</sphere>
             		</geometry>
           	</visual>
           </link>
+	  <link name="left_wheel">
+        	<pose>0.082 0 0.012 0 1.5707 0</pose>
+        	<collision name="collision">
+         		<geometry>
+            			<cylinder>
+              				<radius>.012</radius>
+              				<length>.008</length>
+            			</cylinder>
+          		</geometry>
+        	</collision>
+        	<visual name="visual">
+        		<geometry>
+            			<cylinder>
+              				<radius>.012</radius>
+              				<length>.008</length>
+            			</cylinder>
+          		</geometry>
+        	</visual>
+     	  </link>
+	  <link name="right_wheel">
+        	<pose>-0.082 0 0.012 0 1.5707 0</pose>
+        	<collision name="collision">
+         		<geometry>
+            			<cylinder>
+              				<radius>.012</radius>
+              				<length>.008</length>
+            			</cylinder>
+          		</geometry>
+        	</collision>
+        	<visual name="visual">
+        		<geometry>
+            			<cylinder>
+              				<radius>.012</radius>
+              				<length>.008</length>
+            			</cylinder>
+          		</geometry>
+        	</visual>
+     	  </link>
   </model>
 </sdf>
