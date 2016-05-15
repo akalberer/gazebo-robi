@@ -5,7 +5,17 @@
 	
 	<link name='chassis'>
 		<pose>0 0 .012 0 0 0</pose>
-
+		<inertial>
+      			<mass>0.06432</mass>
+      			<inertia>
+        			<ixx>0.000143414</ixx>
+        			<iyy>0.000115030</iyy>
+        			<izz>0.000258336</izz>
+				<ixy>0</ixy>
+				<ixz>0</ixz>
+				<iyz>0</iyz>
+      			</inertia>
+		</inertial>
 		<collision name='collision'>
               		<geometry>
                 		<cylinder>
@@ -16,16 +26,34 @@
             	</collision>
 
             	<visual name='visual'>
+			<pose>0 0 0 0 0 0</pose>
               		<geometry>
                 		<mesh>
-					<uri>model://robi/meshes/robi_base.dae</uri>
+					<uri>model://robi/meshes/robi_base2.dae</uri>
      				</mesh>
-              		</geometry>
+              		</geometry><!-->
+			<geometry>
+                		<cylinder>
+                  			<radius>0.09</radius>
+					<length>0.002</length>
+                		</cylinder>
+              		</geometry><!-->
             	</visual>
 
 		<collision name='caster_collision'>
             		<pose>0 0.07 0 0 0 0</pose>
-            		
+			<!--> check because of large grey box!!<!-->
+			<inertial>
+	      			<mass>0.02019466</mass>
+	      			<inertia>
+					<ixx>0.000001163213</ixx>
+					<iyy>0.000001163213</iyy>
+					<izz>0.000001163213</izz>
+					<ixy>0</ixy>
+					<ixz>0</ixz>
+					<iyz>0</iyz>
+	      			</inertia>
+			</inertial>
 			<geometry>
                 		<sphere>
                 			<radius>.012</radius>
@@ -56,6 +84,17 @@
           </link>
 	  <link name="left_wheel">
         	<pose>0.082 0 0.012 0 1.5707 0</pose>
+		<inertial>
+      			<mass>0.010097</mass>
+      			<inertia>
+        			<ixx>0.000000578914</ixx>
+        			<iyy>0.000000578914</iyy>
+        			<izz>0.000000727008</izz>
+				<ixy>0</ixy>
+				<ixz>0</ixz>
+				<iyz>0</iyz>
+      			</inertia>
+		</inertial>
         	<collision name="collision">
          		<geometry>
             			<cylinder>
@@ -75,6 +114,17 @@
      	  </link>
 	  <link name="right_wheel">
         	<pose>-0.082 0 0.012 0 1.5707 0</pose>
+		<inertial>
+      			<mass>0.010097</mass>
+      			<inertia>
+        			<ixx>0.000000578914</ixx>
+        			<iyy>0.000000578914</iyy>
+        			<izz>0.000000727008</izz>
+				<ixy>0</ixy>
+				<ixz>0</ixz>
+				<iyz>0</iyz>
+      			</inertia>
+		</inertial>
         	<collision name="collision">
          		<geometry>
             			<cylinder>
