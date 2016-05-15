@@ -1,20 +1,21 @@
 <?xml version='1.0'?>
 <sdf version='1.4'>
   <model name="robi">
-	<static>true</static>
-	
+	<static>true</static>	<!-->comment this line after joints and positioning is defined, then inertias will work correct<!-->
+
 	<link name='chassis'>
 		<pose>0 0 .012 0 0 0</pose>
 		<inertial>
-      			<mass>0.06432</mass>
+			<pose>0 0 0 0 0 0</pose>
       			<inertia>
         			<ixx>0.000143414</ixx>
         			<iyy>0.000115030</iyy>
         			<izz>0.000258336</izz>
-				<ixy>0</ixy>
-				<ixz>0</ixz>
-				<iyz>0</iyz>
+				<ixy>-0.0000000657706</ixy>
+				<ixz>0.00000000019534</ixz>
+				<iyz>0.00000000072647</iyz>
       			</inertia>
+      			<mass>0.06432</mass>
 		</inertial>
 		<collision name='collision'>
               		<geometry>
@@ -39,10 +40,12 @@
                 		</cylinder>
               		</geometry><!-->
             	</visual>
-
+	</link>
+	<link name="caster">
 		<collision name='caster_collision'>
             		<pose>0 0.07 0 0 0 0</pose>
-			<!--> check because of large grey box!!<!-->
+
+			
 			<inertial>
 	      			<mass>0.02019466</mass>
 	      			<inertia>
@@ -54,6 +57,8 @@
 					<iyz>0</iyz>
 	      			</inertia>
 			</inertial>
+			
+
 			<geometry>
                 		<sphere>
                 			<radius>.012</radius>
@@ -81,10 +86,13 @@
               			</sphere>
             		</geometry>
           	</visual>
+
           </link>
+
 	  <link name="left_wheel">
         	<pose>0.082 0 0.012 0 1.5707 0</pose>
 		<inertial>
+			<pose>0 0 0 0 0 0</pose>
       			<mass>0.010097</mass>
       			<inertia>
         			<ixx>0.000000578914</ixx>
@@ -115,6 +123,7 @@
 	  <link name="right_wheel">
         	<pose>-0.082 0 0.012 0 1.5707 0</pose>
 		<inertial>
+			<pose>0 0 0 0 0 0</pose>
       			<mass>0.010097</mass>
       			<inertia>
         			<ixx>0.000000578914</ixx>
@@ -142,5 +151,6 @@
           		</geometry>
         	</visual>
      	  </link>
+
   </model>
 </sdf>
