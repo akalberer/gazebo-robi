@@ -1,9 +1,9 @@
 <?xml version='1.0'?>
 <sdf version='1.4'>
   <model name="robi">
-	<static>true</static>	<!-->comment this line after joints and positioning is defined, then inertias will work correct<!-->
+	<static>false</static>	<!-->set to false after joints and positioning is defined, then inertias will work correct<!-->
 
-	<link name='chassis'>
+	<link name="chassis">
 		<pose>0 0 .012 0 0 0</pose>
 		<inertial>
 			<pose>0 0 0 0 0 0</pose>
@@ -40,14 +40,13 @@
                 		</cylinder>
               		</geometry><!-->
             	</visual>
-	</link>
-	<link name="caster">
+	<!--></link>
+	<link name="caster"><!-->
 		<collision name='caster_collision'>
             		<pose>0 0.07 0 0 0 0</pose>
 
 			
 			<inertial>
-	      			<mass>0.02019466</mass>
 	      			<inertia>
 					<ixx>0.000001163213</ixx>
 					<iyy>0.000001163213</iyy>
@@ -56,6 +55,7 @@
 					<ixz>0</ixz>
 					<iyz>0</iyz>
 	      			</inertia>
+	      			<mass>0.02019466</mass>
 			</inertial>
 			
 
@@ -151,6 +151,31 @@
           		</geometry>
         	</visual>
      	  </link>
+	
+	<joint type="revolute" name="left_wheel_hinge">
+        	<pose>0 0 0.012 0 0 0</pose>
+        	<child>left_wheel</child>
+        	<parent>chassis</parent>
+        	<axis>
+          		<xyz>1 0 0</xyz>
+			<limit>
+				<lower>-10000000000000000</lower>
+      				<upper>10000000000000000</upper>
+    			</limit>
+        	</axis>
+      	</joint>
 
+      	<joint type="revolute" name="right_wheel_hinge">
+        	<pose>0 0 0.012 0 0 0</pose>
+        	<child>right_wheel</child>
+        	<parent>chassis</parent>
+        	<axis>
+          		<xyz>1 0 0</xyz>
+ 			<limit>
+				<lower>-10000000000000000</lower>
+      				<upper>10000000000000000</upper>
+    			</limit>
+        	</axis>
+      	</joint>
   </model>
 </sdf>
