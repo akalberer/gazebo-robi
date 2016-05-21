@@ -6,16 +6,24 @@
 	<link name="chassis">
 		<pose>0 0 .012 0 0 0</pose>
 		<inertial>
-			<pose>0 0 0 0 0 0</pose>
+			<pose>0 0.001 0 0 0 0</pose>
       			<inertia>
-        			<ixx>0.000143414</ixx>
+        			<!--><ixx>0.000143414</ixx>
         			<iyy>0.000115030</iyy>
         			<izz>0.000258336</izz>
 				<ixy>-0.0000000657706</ixy>
 				<ixz>0.00000000019534</ixz>
 				<iyz>0.00000000072647</iyz>
       			</inertia>
-      			<mass>0.06432</mass>
+      			<mass>0.06432</mass><!-->
+				<ixx>0.143414</ixx>
+        			<iyy>0.115030</iyy>
+        			<izz>0.258336</izz>
+				<ixy>-0.0000657706</ixy>
+				<ixz>0.00000019534</ixz>
+				<iyz>0.00000072647</iyz>
+      			</inertia>
+      			<mass>64.32</mass>
 		</inertial>
 		<collision name='collision'>
               		<geometry>
@@ -27,7 +35,7 @@
             	</collision>
 
             	<visual name='visual'>
-			<pose>0 0 0 0 0 0</pose>
+			<pose>0 0 0.001 0 0 0</pose>
               		<geometry>
                 		<mesh>
 					<uri>model://robi/meshes/robi_base2.dae</uri>
@@ -48,14 +56,22 @@
 			
 			<inertial>
 	      			<inertia>
-					<ixx>0.000001163213</ixx>
+					<!--><ixx>0.000001163213</ixx>
 					<iyy>0.000001163213</iyy>
 					<izz>0.000001163213</izz>
 					<ixy>0</ixy>
 					<ixz>0</ixz>
 					<iyz>0</iyz>
 	      			</inertia>
-	      			<mass>0.02019466</mass>
+	      			<mass>0.02019466</mass><!-->
+					<ixx>0.001163213</ixx>
+					<iyy>0.001163213</iyy>
+					<izz>0.001163213</izz>
+					<ixy>0</ixy>
+					<ixz>0</ixz>
+					<iyz>0</iyz>
+	      			</inertia>
+	      			<mass>20.19466</mass>
 			</inertial>
 			
 
@@ -87,17 +103,71 @@
             		</geometry>
           	</visual>
 
+		
+
           </link>
+
+	  <link name="battery">
+		<collision name='battery_collision'>
+            		<pose>0 0.04 0.014 0 0 0</pose>
+
+			
+			<inertial>
+	      			<inertia>
+					<!--><ixx>0.000001163213</ixx>
+					<iyy>0.000001163213</iyy>
+					<izz>0.000001163213</izz>
+					<ixy>0</ixy>
+					<ixz>0</ixz>
+					<iyz>0</iyz>
+	      			</inertia>
+	      			<mass>0.02019466</mass><!-->
+					<ixx>0.001163213</ixx>
+					<iyy>0.001163213</iyy>
+					<izz>0.001163213</izz>
+					<ixy>0</ixy>
+					<ixz>0</ixz>
+					<iyz>0</iyz>
+	      			</inertia>
+	      			<mass>20.19466</mass>
+			</inertial>
+			
+
+			<geometry>
+                		<box>
+                			<size>.02 .01 .005</size>
+              			</box>
+            		</geometry>
+          	</collision>
+		<visual name='battery_visual'>
+            		<pose>0 0.04 0.014 0 0 0</pose>
+
+            		<geometry>
+              			<box>
+                			<size>.02 .01 .005</size>
+              			</box>
+            		</geometry>
+          	</visual>
+	  </link>
 
 	  <link name="left_wheel">
         	<pose>0.082 0 0.012 0 1.5707 0</pose>
 		<inertial>
 			<pose>0 0 0 0 0 0</pose>
-      			<mass>0.010097</mass>
+      			<!--><mass>0.010097</mass>
       			<inertia>
         			<ixx>0.000000578914</ixx>
         			<iyy>0.000000578914</iyy>
         			<izz>0.000000727008</izz>
+				<ixy>0</ixy>
+				<ixz>0</ixz>
+				<iyz>0</iyz>
+      			</inertia><!-->
+			<mass>10.097</mass>
+      			<inertia>
+        			<ixx>0.000578914</ixx>
+        			<iyy>0.000578914</iyy>
+        			<izz>0.000727008</izz>
 				<ixy>0</ixy>
 				<ixz>0</ixz>
 				<iyz>0</iyz>
@@ -129,11 +199,20 @@
         	<pose>-0.082 0 0.012 0 1.5707 0</pose>
 		<inertial>
 			<pose>0 0 0 0 0 0</pose>
-      			<mass>0.010097</mass>
+      			<!--><mass>0.010097</mass>
       			<inertia>
         			<ixx>0.000000578914</ixx>
         			<iyy>0.000000578914</iyy>
         			<izz>0.000000727008</izz>
+				<ixy>0</ixy>
+				<ixz>0</ixz>
+				<iyz>0</iyz>
+      			</inertia><!-->
+			<mass>10.097</mass>
+      			<inertia>
+        			<ixx>0.000578914</ixx>
+        			<iyy>0.000578914</iyy>
+        			<izz>0.000727008</izz>
 				<ixy>0</ixy>
 				<ixz>0</ixz>
 				<iyz>0</iyz>
@@ -186,6 +265,12 @@
       				<upper>10000000000000000</upper>
     			</limit>
         	</axis>
+      	</joint>
+
+	<joint type="fixed" name="battery_joint">
+        	<pose>0 0.04 0.012 0 0 0</pose>
+        	<child>battery</child>
+        	<parent>chassis</parent>
       	</joint>
   </model>
 </sdf>
