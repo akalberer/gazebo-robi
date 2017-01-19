@@ -38,7 +38,7 @@
 			<pose>0 0 0.001 0 0 0</pose>
               		<geometry>
                 		<mesh>
-					<uri>model://robi/meshes/robi_base2.dae</uri>
+					<uri>model://gazebo-robi/meshes/robi_base2.dae</uri>
      				</mesh>
               		</geometry>
 			<!--><geometry>
